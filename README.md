@@ -1,5 +1,5 @@
 # fastDownloader
-A downloader coded for myself.(selfuse)
+A downloader developed for myself.(selfuse)
 ## Usage
 Install dependencies.
 ```bash
