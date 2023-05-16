@@ -26,5 +26,5 @@ options:
 ```
 ## Example
 ```bash
-python3 main.py --src ./test.json --max 3 --chunk 1024
+python3 main.py --src ./test_failed.json --max 3 --chunk 1024
 ```

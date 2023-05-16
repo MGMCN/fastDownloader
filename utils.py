@@ -5,6 +5,7 @@ import os
 from tqdm import tqdm
 import re
 
+# Not graceful
 failed = []
 success = 0
 counts = 0
@@ -15,6 +16,7 @@ def preprocessing(src_path) -> list:
     if src_path is not None:
         with open(src_path, 'r') as file:
             tasks.extend(json.load(file))
+    tasks = list(set(tasks))  # remove duplicate task
     return tasks
 
 
