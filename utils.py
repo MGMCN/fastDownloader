@@ -10,13 +10,10 @@ success = 0
 counts = 0
 
 
-def preprocessing(src_path, failed_path) -> list:
+def preprocessing(src_path) -> list:
     tasks = []
     if src_path is not None:
         with open(src_path, 'r') as file:
-            tasks.extend(json.load(file))
-    if failed_path is not None:
-        with open(failed_path, 'r') as file:
             tasks.extend(json.load(file))
     return tasks
 
@@ -85,7 +82,7 @@ async def main(tasks, args, progress_bar):
     if fa > 0:
         tqdm.write(f'❌ {fa} files failed to download!')
         tqdm.write(
-            f'👉 Plz rerun with \"python3 main.py --save {save} --max {Max} --interval {interval} --chunk {chunk} --failed failed.json\"')
+            f'👉 Plz rerun with \"python3 main.py --src failed.json --save {save} --max {Max} --interval {interval} --chunk {chunk}\"')
         with open("failed.json", 'w') as f:
             f.write(json.dumps(failed))
     else:
