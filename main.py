@@ -3,7 +3,7 @@ import utils as downloader
 
 
 def get_args():
-    parser = argparse.ArgumentParser(description='wiseDownloader v0.0.1')
+    parser = argparse.ArgumentParser(description='fastDownloader v0.0.1')
     parser.add_argument('--src', type=str, default=None,
                         help='This parameter specifies the file path where the links to be '
                              'downloaded are stored.')
@@ -15,15 +15,12 @@ def get_args():
     parser.add_argument('--chunk', type=int, default=1024,
                         help='This parameter specifies the number of bytes to be read per '
                              'download.')
-    parser.add_argument('--failed', type=str, default=None,
-                        help='This parameter specifies the file path for storing the '
-                             'links that need to be re-downloaded.')
     return parser.parse_args()
 
 
 if __name__ == '__main__':
     args = get_args()
-    tasks = downloader.preprocessing(args.src, args.failed)
+    tasks = downloader.preprocessing(args.src)
     length = len(tasks)
     if length != 0:
         downloader.counts = len(tasks)
