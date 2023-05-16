@@ -35,6 +35,7 @@ def update_progress_bar(progress_bar):
 def get_file_name(url) -> str:
     path_parts = url.split('/')
     file_name = path_parts[-1]
+    file_name = f'{hash(url)}_{file_name}'
     file_name = re.sub(r'[^\w\-_.()]', '_', file_name)
     return file_name
 
