@@ -21,9 +21,9 @@ def get_args():
 if __name__ == '__main__':
     args = get_args()
     tasks = downloader.preprocessing(args.src)
-    length = len(tasks)
-    if length != 0:
-        downloader.counts = len(tasks)
+    task_counts = len(tasks)
+    if task_counts != 0:
+        downloader.counts = task_counts
         progress_bar = downloader.generate_progress_bar()
         downloader.run(tasks, args, progress_bar)
     else:
