@@ -27,4 +27,4 @@ if __name__ == '__main__':
         progress_bar = downloader.generate_progress_bar()
         downloader.run(tasks, args, progress_bar)
     else:
-        print('There are no resources that need to be downloaded!')
+        print('> There are no resources that need to be downloaded!')

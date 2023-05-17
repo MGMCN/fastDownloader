@@ -52,7 +52,7 @@ async def download(session,
         file_name = get_file_name(url)
         save_path = f"{save_dir}/{file_name}"
         try:
-            tqdm.write(f'👉 Downloading {file_name} now!')
+            tqdm.write(f'> Downloading {file_name} now!')
             async with session.get(url) as response:
                 await asyncio.sleep(request_interval)
                 with open(save_path, 'wb') as f:
@@ -83,13 +83,13 @@ async def main(tasks, args, progress_bar):
     await session.close()
     fa = len(failed)
     if fa > 0:
-        tqdm.write(f'❌ {fa} files failed to download!')
+        tqdm.write(f'> {fa} files failed to download!')
         tqdm.write(
-            f'👉 Plz rerun with \"python3 main.py --src failed.json --save {save} --max {Max} --interval {interval} --chunk {chunk}\"')
+            f'> Plz rerun with \"python3 main.py --src failed.json --save {save} --max {Max} --interval {interval} --chunk {chunk}\"')
         with open("failed.json", 'w') as f:
             f.write(json.dumps(failed))
     else:
-        tqdm.write('✅ All resources have been successfully downloaded!')
+        tqdm.write('> All resources have been successfully downloaded!')
 
 
 def run(tasks, args, progress_bar):
